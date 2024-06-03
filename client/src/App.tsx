@@ -15,7 +15,7 @@ import {
   PeopleAltOutlined,
   StarOutlineRounded,
   VillaOutlined,
-} from '@mui/icons-material'
+} from "@mui/icons-material";
 
 import dataProvider from "@pankod/refine-simple-rest";
 import routerProvider from "@pankod/refine-react-router-v6";
@@ -25,7 +25,7 @@ import { ColorModeContextProvider } from "contexts";
 import { CredentialResponse } from "interfaces/google";
 import { parseJwt } from "utils/parse-jwt";
 
-import { 
+import {
   Login,
   Home,
   Agents,
@@ -57,29 +57,32 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
 
       if (profileObj) {
-        const response = await fetch('https://mearn-app-2023.onrender.com/api/v1/users', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: profileObj.name,
-            email: profileObj.email,
-            avatar: profileObj.picture,
-          })
-        })
+        const response = await fetch(
+          "https://tommy-realestate.onrender.com/api/v1/users",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: profileObj.name,
+              email: profileObj.email,
+              avatar: profileObj.picture,
+            }),
+          }
+        );
 
         const data = await response.json();
 
-        if(response.status === 200) {
+        if (response.status === 200) {
           localStorage.setItem(
             "user",
             JSON.stringify({
               ...profileObj,
               avatar: profileObj.picture,
-              userid: data._id
+              userid: data._id,
             })
           );
         } else {
-          return Promise.reject()
+          return Promise.reject();
         }
       }
       localStorage.setItem("token", `${credential}`);
@@ -125,7 +128,9 @@ function App() {
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
         <Refine
-          dataProvider={dataProvider("https://mearn-app-2023.onrender.com/api/v1")}
+          dataProvider={dataProvider(
+            "https://tommy-realestate.onrender.com/api/v1"
+          )}
           notificationProvider={notificationProvider}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
@@ -156,7 +161,7 @@ function App() {
             },
             {
               name: "my-profile",
-              options: { label: 'My Profile '},
+              options: { label: "My Profile " },
               list: MyProfile,
               icon: <AccountCircleOutlined />,
             },

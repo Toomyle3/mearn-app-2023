@@ -58,7 +58,7 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
                   <Typography fontSize={14} fontWeight={500} color="#808191">Address</Typography>
                   <Box display="flex" flexDirection="row" alignItems="center" gap="10px">
                     <Place sx={{ color: '#11142D' }} />
-                    <Typography fontSize={14} color="#11142D">4517 Washington Ave. Manchaster, Kentucky 39495</Typography>
+                    <Typography fontSize={14} color="#11142D">Ho Chi Minh, Viet Nam</Typography>
                   </Box>
                 </Stack>
 
@@ -67,7 +67,7 @@ const Profile = ({ type, name, avatar, email, properties }: ProfileProps) => (
                     <Typography fontSize={14} fontWeight={500} color="#808191">Phone Number</Typography>
                     <Box display="flex" flexDirection="row" alignItems="center" gap="10px">
                       <Phone sx={{ color: '#11142D' }} />
-                      <Typography fontSize={14} color="#11142D" noWrap>+0123 456 7890</Typography>
+                      <Typography fontSize={14} color="#11142D" noWrap>0788873022</Typography>
                     </Box>
                   </Stack>
 
