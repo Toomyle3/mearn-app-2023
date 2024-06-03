@@ -57,7 +57,7 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
 
       if (profileObj) {
-        const response = await fetch('https://real-estate-minh.onrender.com/api/v1/users', {
+        const response = await fetch('https://mearn-app-2023.onrender.com/api/v1/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -125,7 +125,7 @@ function App() {
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
         <Refine
-          dataProvider={dataProvider("https://real-estate-minh.onrender.com/api/v1")}
+          dataProvider={dataProvider("https://mearn-app-2023.onrender.com/api/v1")}
           notificationProvider={notificationProvider}
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
